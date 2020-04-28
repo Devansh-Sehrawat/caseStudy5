@@ -28,12 +28,15 @@ public class StepDefinition {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.get("http://demowebshop.tricentis.com/");
+		assertEquals("Demo Web Shop", driver.getTitle());
+
 		
 	}
 
 	@Given("Click on Log in link")
 	public void click_on_Log_in_link() {
 		driver.findElement(By.linkText("Log in")).click();
+		assertEquals("Demo Web Shop. Login", driver.getTitle());
 	}
 
 	@When("Enters email and password and clicks login")
